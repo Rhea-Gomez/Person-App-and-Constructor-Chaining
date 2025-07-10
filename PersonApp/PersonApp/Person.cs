@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PersonApp
+{
+    public class Person
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public double Height { get; set; }
+        public double Weight { get; set; }
+
+        
+
+        public Person(int id, string name, int age, double height, double weight)
+        {
+            Id = id;
+            Name = name;
+            Age = age;
+            Height = height;
+            Weight = weight;
+        }
+
+        //using constructor chaining
+        public Person(int id, string name, int age) : this(id, name, age, 1.50, 50)
+        {
+           
+        }
+
+        public void CalculateBMI()
+        {
+            double bmi = Weight / (Height * Height);
+
+            Console.WriteLine("BMI : " + bmi);
+
+            if(bmi < 18.5)
+            {
+                Console.WriteLine("You are underweight!");
+            } else if(bmi >= 18.5 && bmi < 24.9)
+            {
+                Console.WriteLine("You are normal weight!");
+            } else if(bmi >= 25 && bmi < 29.9)
+            {
+                Console.WriteLine("You are overweight!");
+            } else
+            {
+                Console.WriteLine("You are obese!");
+            }
+        }
+    }
+}
